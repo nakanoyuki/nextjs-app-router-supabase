@@ -11,6 +11,7 @@ async function fetchNotes() {
     headers: new Headers({
       apikey: process.env.apikey as string,
     }),
+    cache: 'no-store',
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data in server')
