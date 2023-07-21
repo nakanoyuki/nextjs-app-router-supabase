@@ -8,7 +8,7 @@ async function fetchBlogs() {
     headers: new Headers({
       apikey: process.env.apikey as string,
     }),
-    cache: 'no-store',
+    cache: 'force-cache',
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data in server')
@@ -27,7 +27,7 @@ export default async function BlogListStatic() {
       <ul>
         {blogs?.map((blog) => (
           <li key={blog.id} className="my-1 text-base">
-            <Link href={`blogs/${blog.id}`} prefetch={false}>{blog.title}</Link>
+            <Link href={`/blogs/${blog.id}`} prefetch={false}>{blog.title}</Link>
           </li>
         ))}
       </ul>
